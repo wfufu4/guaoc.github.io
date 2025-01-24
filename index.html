@@ -3,46 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的写作空间</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="个人写作空间 - 分享技术与生活随笔">
+    <title>轻墨文阁</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ffe6eb;
+            --accent-pink: #ffb3c1;
+            --dark-text: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui;
+            background: white;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* 侧边栏样式 */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--primary-pink);
+            padding: 2rem;
+            box-sizing: border-box;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-links {
+            padding: 0;
+        }
+
+        .nav-links li {
+            list-style: none;
+            margin: 1.5rem 0;
+            transition: transform 0.2s;
+        }
+
+        .nav-links li:hover {
+            transform: translateX(8px);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links i {
+            width: 25px;
+            text-align: center;
+        }
+
+        /* 主内容区 */
+        .content {
+            margin-left: 280px;
+            padding: 3rem 5rem;
+            max-width: 800px;
+        }
+
+        .post-card {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .post-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .post-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1.5rem;
+            }
+            
+            .content {
+                margin-left: 0;
+                padding: 2rem;
+            }
+            
+            .logo {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* 辅助样式 */
+        .post-meta {
+            display: flex;
+            gap: 15px;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--accent-pink);
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            float: right;
+            transition: background 0.3s;
+        }
+
+        .read-more:hover {
+            background: #ff9aae;
+        }
+    </style>
 </head>
 <body>
-    <!-- 侧边栏 -->
     <nav class="sidebar">
         <div class="logo">
             <i class="fas fa-pen-nib"></i>
-            <span>写作空间</span>
+            <span>轻墨文阁</span>
         </div>
         <ul class="nav-links">
-            <li><a href="/"><i class="fas fa-home"></i> 首页</a></li>
-            <li><a href="#posts"><i class="fas fa-feather"></i> 最新文章</a></li>
-            <li><a href="#about"><i class="fas fa-user"></i> 关于我</a></li>
-            <li><a href="#archive"><i class="fas fa-archive"></i> 文章归档</a></li>
+            <li><a href="/"><i class="fas fa-home"></i>首页</a></li>
+            <li><a href="#posts"><i class="fas fa-feather"></i>最新文章</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i>关于作者</a></li>
+            <li><a href="#archive"><i class="fas fa-archive"></i>文章归档</a></li>
         </ul>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-weibo"></i></a>
-        </div>
     </nav>
 
-    <!-- 主内容区 -->
     <main class="content">
-        <header class="page-header">
-            <h1>最新文章</h1>
-        </header>
-        
         <article class="post-card">
             <div class="post-meta">
                 <time>2024年5月20日</time>
-                <span class="category">技术随笔</span>
+                <span class="category">• 技术随笔</span>
             </div>
             <h2><a href="posts/2024-05-20-first-post.html">我的第一篇技术博客</a></h2>
-            <p>探索编程世界的奇妙旅程...</p>
-            <div class="post-footer">
-                <img src="images/header-bg.jpg" alt="文章配图" class="post-image">
-                <a href="posts/2024-05-20-first-post.html" class="read-more">阅读全文 →</a>
+            <p>在这个数字化的时代，编程已成为连接创意与现实的桥梁。今天，我将开始记录这段充满挑战与惊喜的技术之旅...</p>
+            <picture>
+                <source srcset="images/post1.webp" type="image/webp">
+                <img src="images/post1.jpg" alt="代码与咖啡" class="post-image">
+            </picture>
+            <a href="posts/2024-05-20-first-post.html" class="read-more">阅读全文 →</a>
+        </article>
+
+        <article class="post-card">
+            <div class="post-meta">
+                <time>2024年5月21日</time>
+                <span class="category">• 生活随笔</span>
             </div>
+            <h2><a href="posts/2024-05-21-second-post.html">春日咖啡馆的写作时光</a></h2>
+            <p>阳光透过落地窗洒在实木桌面上，咖啡的香气与键盘的敲击声交织成午后最动人的旋律...</p>
+            <img src="images/cafe.jpg" alt="咖啡馆一角" class="post-image">
+            <a href="posts/2024-05-21-second-post.html" class="read-more">阅读全文 →</a>
         </article>
     </main>
 </body>
